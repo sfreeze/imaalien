@@ -1,22 +1,25 @@
-// .input이 포커스되면 .box의 background가 1.2배 확대
-document.addEventListener('DOMContentLoaded', function() {
-    const input = document.querySelector('.input');
-    const bg = document.querySelector('.bg');
-    const copyInput = document.querySelector('.copy-input');
+const input = document.querySelector('.input');
+const bg = document.querySelector('.bg');
+const copyInput = document.querySelector('.copy-input');
+const loginForm = document.querySelector('#login-form')
+const greeting = document.querySelector('#greeting')
 
-    input.addEventListener('focus', function() {
-        bg.style.transform = 'scale(1.8)';
-        copyInput.style.transform = 'translateX(-50%) scale(1.8)';
-    });
+const HIDDEN_CLASSNAME = "hidden"
+const USERNAME_KEY = "username"
 
-    input.addEventListener('blur', function() {
-        bg.style.transform = 'scale(1)';
-        copyInput.style.transform = 'translateX(-50%) scale(1)';
-    });
+const inputBox = document.querySelector('.input-box');
 
-    function updateBox() {
-        copyInput.textContent = input.value;
-    }
-    input.addEventListener('input', updateBox);
-
+input.addEventListener('focus', function() {
+    bg.style.transform = 'scale(1.8)';
+    copyInput.style.transform = 'translateX(-50%) scale(1.8)';
 });
+
+input.addEventListener('blur', function() {
+    bg.style.transform = 'scale(1)';
+    copyInput.style.transform = 'translateX(-50%) scale(1)';
+});
+
+function updateBox() {
+    copyInput.textContent = input.value;
+}
+input.addEventListener('input', updateBox);
